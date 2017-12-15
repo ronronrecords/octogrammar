@@ -29,7 +29,7 @@ app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 // Now files can be loaded http://localhost:3000/images/etc.etc**
 
 app.use(express.static("public"));
-app.set(‘view engine’, ‘hbs’);
+app.set("view engine", "hbs");
 
 // Routes
 //javascript file and module loader, improves speed and quality of code**

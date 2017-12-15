@@ -56,5 +56,9 @@ module.exports = function (app) {
       dateModified: song.dateModified
     });
   });
+
+  app.get("/", function (req, res) {
+    res.render("index")
+  })
 };
 

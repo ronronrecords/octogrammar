@@ -25,7 +25,7 @@ module.exports = function(app) {
         attributes: ['id', 'name']
       }).then(function(result) {
         return res.json(result);
-      });
+      })
     }
 
     // Otherwise...

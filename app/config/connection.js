@@ -22,4 +22,5 @@ connection.createConnection(function(err){
   console.log("connected to database");
   
 // Exports the connection for other files to use
-module.exports = sequelize;
+    module.exports = sequelize
+;

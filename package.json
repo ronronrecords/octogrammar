@@ -18,6 +18,8 @@
   "homepage": "https://github.com/ronronrecords/octogrammar#readme",
   "dependencies": {
     "express": "^4.16.2",
+    "js-yaml": "^3.10.0",
+    "mysql": "^2.15.0",
     "mysql2": "^1.5.1",
     "orm": "^4.0.2",
     "ps-node": "^0.1.6",

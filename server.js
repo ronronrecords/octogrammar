@@ -5,7 +5,7 @@
 
 //needed
 var express = require("express");
-var bodyParser = require("body-parser");
+var bodyParser = require("sequelize");
 
 // Sets up the Express App
 // =============================================================

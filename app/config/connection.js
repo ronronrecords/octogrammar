@@ -6,7 +6,7 @@
 var Sequelize = require("sequelize");
 
 // Creates mySQL connection using Sequelize
-var sequelize = new Sequelize("starwars", "root", "ChangeMe123", {
+var sequelize = new Sequelize("song", "id", "ChangeMe123", {
   host: "localhost",
   dialect: "mysql",
   pool: {
@@ -16,5 +16,10 @@ var sequelize = new Sequelize("starwars", "root", "ChangeMe123", {
   }
 });
 
+connection.createConnection(function(err){
+  if(err)
+  throw err;
+  console.log("connected to database");
+  
 // Exports the connection for other files to use
 module.exports = sequelize;

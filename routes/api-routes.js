@@ -11,7 +11,7 @@
 module.exports = function(app) {
 
   // Search for Specific song (or all songs) then provides JSON
-  app.get("/api/:song?", function(req, res) {
+  app.get("/app/:song?", function(req, res) {
 
     // If the user provides a specific song in the URL...
     if (req.params.song) {

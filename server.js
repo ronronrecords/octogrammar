@@ -6,6 +6,7 @@
 //needed
 var express = require("express");
 var bodyParser = require("body-parser");
+var hbs = require("handlebars");
 
 // Sets up the Express App
 // =============================================================
@@ -27,9 +28,8 @@ app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 // Static directory to be served**
 // Needed to serve images, CSS files, JS files**
 // Now files can be loaded http://localhost:3000/images/etc.etc**
-
-app.use(express.static("public"));
 app.set("view engine", "hbs");
+app.use(express.static("public"));
 
 // Routes
 //javascript file and module loader, improves speed and quality of code**

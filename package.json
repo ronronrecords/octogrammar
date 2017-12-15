@@ -19,6 +19,8 @@
   "dependencies": {
     "express": "^4.16.2",
     "mysql2": "^1.5.1",
+    "orm": "^4.0.2",
+    "ps-node": "^0.1.6",
     "sequelize": "^4.28.1"
   }
 }

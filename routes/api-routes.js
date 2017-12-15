@@ -4,23 +4,23 @@
 
 // Dependencies
 // =============================================================
-var song = require("octogrammar/server.js");
+// var song = require("octogrammar/server.js");
 
 // Routes
 // =============================================================
 module.exports = function(app) {
 
-  // Search for Specific Character (or all characters) then provides JSON
-  app.get("/api/:characters?", function(req, res) {
+  // Search for Specific song (or all songs) then provides JSON
+  app.get("/api/:song?", function(req, res) {
 
-    // If the user provides a specific character in the URL...
+    // If the user provides a specific song in the URL...
     if (req.params.song) {
 
-      // Then display the JSON for ONLY that character.
+      // Then display the JSON for ONLY that song.
       // (Note how we're using the ORM here to run our searches)
       song.findOne({
         where: {
-          routeName: req.params.song
+          title: req.params.song
         },
         attributes: ['id', 'name']
       }).then(function(result) {
@@ -30,7 +30,7 @@ module.exports = function(app) {
 
     // Otherwise...
     else {
-      // Otherwise display the data for all of the characters.
+      // Otherwise display the data for all of the songs.
       // (Note how we're using Sequelize here to run our searches)
       song.findAll({})
         .then(function(result) {
@@ -40,7 +40,7 @@ module.exports = function(app) {
 
   });
 
-  // If a user sends data to add a new character...
+  // If a user sends data to add a new song...
   app.post("/api/new", function(req, res) {
 
     // Take the request...
@@ -49,13 +49,14 @@ module.exports = function(app) {
     // Create a routeName
     var routeName = song.name.replace(/\s+/g, "").toLowerCase();
 
-    // Then add the character to the database using sequelize
+    // Then add the song to the database using sequelize
     song.create({
-      routeName: routeName,
-      title: song.name,
-      id: song.role,
-      writers: song.age,
-      forcePoints: song.forcePoints
+      title:song.title,
+      id: song.id,
+      writers: song.wrtiters,
+      dateCreated: song.dateCreated,
+      dateModified: song.dateModified
     });
   });
 };
+

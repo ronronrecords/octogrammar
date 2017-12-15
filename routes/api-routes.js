@@ -8,10 +8,10 @@
 
 // Routes
 // =============================================================
-module.exports = function(app) {
+module.exports = function (app) {
 
   // Search for Specific song (or all songs) then provides JSON
-  app.get("/app/:song?", function(req, res) {
+  app.get("/app/:song", function (req, res) {
 
     // If the user provides a specific song in the URL...
     if (req.params.song) {
@@ -23,25 +23,23 @@ module.exports = function(app) {
           title: req.params.song
         },
         attributes: ['id', 'name']
-      }).then(function(result) {
-        return res.json(result);
+      }).then(function (result) {
+        res.json(result);
       })
-    };
-
-    // Otherwise...
-    else {
+    } else {
       // Otherwise display the data for all of the songs.
       // (Note how we're using Sequelize here to run our searches)
       song.findAll({})
-        .then(function(result) {
+        .then(function (result) {
           return res.json(result);
         });
     }
 
+    // Otherwise...
   });
 
   // If a user sends data to add a new song...
-  app.post("/api/new", function(req, res) {
+  app.post("/api/new", function (req, res) {
 
     // Take the request...
     var song = req.body;
@@ -51,7 +49,7 @@ module.exports = function(app) {
 
     // Then add the song to the database using sequelize
     song.create({
-      title:song.title,
+      title: song.title,
       id: song.id,
       writers: song.wrtiters,
       dateCreated: song.dateCreated,

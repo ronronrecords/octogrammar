@@ -5,7 +5,7 @@
 
 //needed
 var express = require("express");
-var bodyParser = require("sequelize");
+var bodyParser = require("body-parser");
 
 // Sets up the Express App
 // =============================================================
@@ -29,6 +29,7 @@ app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 // Now files can be loaded http://localhost:3000/images/etc.etc**
 
 app.use(express.static("public"));
+app.set(‘view engine’, ‘hbs’);
 
 // Routes
 //javascript file and module loader, improves speed and quality of code**
@@ -37,7 +38,8 @@ app.use(express.static("public"));
 require("./routes/api-routes.js")(app);
 
 // Here we introduce HTML routing to serve different HTML files
-require("./routes/html-routes.js")(app);
+
+// require("./routes/api-routes.js")(app);
 
 // Starts the server to begin listening**
 //creates a listener on the specified port or path**

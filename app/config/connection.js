@@ -16,11 +16,14 @@ var sequelize = new Sequelize("song", "id", "ChangeMe123", {
   }
 });
 
-connection.createConnection(function(err){
-  if(err)
-  throw err;
-  console.log("connected to database");
-  
-// Exports the connection for other files to use
-    module.exports = sequelize
-;
+newFunction();
+  function newFunction() {
+    connect.createConnection(function (err) {
+      if (err)
+        throw err;
+      console.log("connected to database");
+      // Exports the connection for other files to use
+      module.exports = sequelize;
+    });
+  }
+

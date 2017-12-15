@@ -26,7 +26,7 @@ module.exports = function(app) {
       }).then(function(result) {
         return res.json(result);
       })
-    }
+    };
 
     // Otherwise...
     else {

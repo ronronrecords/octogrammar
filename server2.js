@@ -1,16 +1,13 @@
-var mySql = require("server2.js");
+var Sequelize = require("sequelize");
 
-var connection = mySql.createConnection({
-    host: "localhost",
-    user: "ronronrecords",
-    password: "Ocilla1944Ron",
-    database: "Octogrammar"
+// Creates mySQL connection using Sequelize
+var sequelize = new Sequelize("song", "id", "ChangeMe123", {
+  host: "localhost",
+  dialect: "mysql",
+  database: "octogrammar",
+  pool: {
+    max: 5,
+    min: 0,
+    idle: 10000
+  }
 });
-
-connection.createConnection(function(err){
-    if(err)
-    throw err;
-    console.log("connected to database");
-});
-
-module.exports = connection;
